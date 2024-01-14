@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from booking_system import views as index_views
-
+from about import views as about_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_views.index, name='index'),
+    path('about/', about_views.about_me, name='about'),
 
 ]
