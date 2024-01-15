@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lo_ku^_ng8lfke_0w$$nf4l3mr$$whtp#@+8$-y!jvuc&r-0ii'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-bashmdz-restaurantbooki-p2d7q6lyrga.ws-us107.gitpod.io','.herokuapp.com'
 ]
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'booking_system',
-    
+    'about',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +84,10 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-bashmdz-restaurantbooki-p2d7q6lyrga.ws-us107.gitpod.io",
+    "https://my-restaurant-booking-system-38d3a97041b0.herokuapp.com"
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
