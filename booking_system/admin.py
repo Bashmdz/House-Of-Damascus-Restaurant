@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Table, Guest, Booking, MenuItem
+from .models import Table, Guest, Booking
 from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Booking)
@@ -13,4 +13,4 @@ class BookingAdmin(SummernoteModelAdmin):
 
 admin.site.register(Table)
 admin.site.register(Guest)
-admin.site.register(MenuItem)
+
