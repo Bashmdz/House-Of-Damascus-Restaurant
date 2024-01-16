@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Your Restaurant Name{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section text-center py-5">
+    <h1 class="display-4">Welcome to Your Restaurant Name</h1>
+    <p class="lead">Experience exquisite flavors and delightful moments</p>
+    <a href="#menu" class="btn btn-primary btn-lg">View Menu</a>
+</section>
+
+<!-- Booking Section -->
+<section id="bookings" class="bookings-section text-center py-5">
+    <h2>Menu</h2>
+    <!-- Display current bookings from database -->
+    {% for booking in object_list %}
+    <div class="booking-item">
+        <p>Guest: {{ booking.guest.name }}, Table: {{ booking.table.number }}, Date: {{ booking.date_time }}</p>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- About Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p>Discover the passion for food at Your Restaurant Name. Our chefs create culinary masterpieces using
+                    the finest ingredients, bringing you a dining experience like no other.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'images/about-us.jpg' %}" alt="About Us Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Menu Section -->
+<section id="menu" class="menu-section text-center py-5">
+    <h2>Our Menu</h2>
+    <!-- Add menu items dynamically from your database -->
+    <div class="menu-item">
+        <h4>Special Dish</h4>
+        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ipsum in lacus commodo
+            fringilla.</p>
+        <span class="text-primary">$19.99</span>
+    </div>
+    <div class="menu-item">
+        <h4>Signature Drink</h4>
+        <p class="text-muted">Duis vehicula mauris nec est feugiat, eu fermentum est volutpat. Sed efficitur est vel
+            neque sollicitudin.</p>
+        <span class="text-primary">$8.99</span>
+    </div>
+    <!-- Add more menu items as needed -->
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section text-center py-5">
+    <h2>Contact Us</h2>
+    <p>Have a question or reservation request? Feel free to reach out to us.</p>
+    <a href="tel:+1234567890" class="btn btn-primary">Call Now</a>
+</section>
+
+{% endblock %}
+{% block copyright %}
+Copyright 2024 Bashar Zheiman
+{% endblock %}
