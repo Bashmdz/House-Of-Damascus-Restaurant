@@ -14,7 +14,7 @@
 <!-- Booking Section -->
 <section id="bookings" class="bookings-section text-center py-5">
     <h2>Current Bookings</h2>
-    <!-- Display current bookings from your database -->
+    <!-- Display current bookings from database -->
     {% for booking in object_list %}
     <div class="booking-item">
         <p>Guest: {{ booking.guest.name }}, Table: {{ booking.table.number }}, Date: {{ booking.date_time }}</p>
