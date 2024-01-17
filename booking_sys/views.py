@@ -6,7 +6,7 @@ from .models import Booking
 
 class BookingList(generic.ListView):
     queryset = Booking.objects.all()
-    template_name = "booking_system/index.html"
+    template_name = "booking_sys/index.html"
     paginate_by = 6
 
 def menu(request):
