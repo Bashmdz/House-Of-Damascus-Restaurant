@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Make a Booking{% endblock %}
+
+{% block content %}
+<h2>Make a Booking</h2>
+{% if user.is_authenticated %}
+<form method="post" action="{% url 'bookform' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit Booking</button>
+</form>
+{% else %}
+<p>You need to be logged in to make a booking. <a href="{% url 'account_login' %}">Login</a></p>
+{% endif %}
+{% endblock %}
