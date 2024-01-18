@@ -1,6 +1,11 @@
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
+    background-image: url('{% static "images/background.jpeg" %}');
+    background-size: cover;
+    /* Adjust the background size as needed */
+    background-position: center;
+    /* Center the background image */
 }
 
 .container {
