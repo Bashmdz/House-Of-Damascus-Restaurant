@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -50,14 +50,17 @@ class BookFormView(SuccessMessageMixin, generic.CreateView):
             print(form.cleaned_data)
         return super().post(request, *args, **kwargs)
 
-class BookListView(generic.ListView):
+class BookListView(LoginRequiredMixin, generic.ListView):
     """
-    View to display bookings already made by a user
+    View to display bookings already made by the logged-in user
     """
     model = Booking
-    queryset = Booking.objects.order_by('date')
     template_name = 'bookinglist.html'
+    paginate_by = 6
 
+    def get_queryset(self):
+        # Filter bookings based on the currently logged-in user
+        return Booking.objects.filter(guest=self.request.user).order_by('date')
 class BookUpdateView(UserPassesTestMixin, generic.UpdateView):
     """
     View to allow a booking to be updated
