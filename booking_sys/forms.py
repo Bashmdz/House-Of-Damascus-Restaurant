@@ -10,7 +10,7 @@ class ReservationForm(forms.ModelForm):
         model = Booking
         fields = ('date', 'time', 'group', 'status')
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date'}),
+            'date': forms.DateInput(attrs={'type': 'date', 'min': (datetime.date.today() + datetime.timedelta(days=1)).strftime('%Y-%m-%d')}),
             'status': forms.HiddenInput(),
         }
 
@@ -18,16 +18,12 @@ class ReservationForm(forms.ModelForm):
         cleaned_data = super().clean()
         selected_date = cleaned_data.get('date')
         selected_time = cleaned_data.get('time')
+        current_booking = self.instance  # Get the current booking being updated
 
-        # Ensure reservations are made for tomorrow or later
-        if selected_date and selected_date <= datetime.date.today():
-            raise forms.ValidationError("Reservations must be made for tomorrow or a future date")
-
-        # Check for existing bookings on the selected date and time
-        existing_bookings = Booking.objects.filter(date=selected_date, time=selected_time)
+        # Check for existing bookings on the selected date and time, excluding the current booking
+        existing_bookings = Booking.objects.filter(date=selected_date, time=selected_time).exclude(pk=current_booking.pk)
         if existing_bookings.exists():
             raise forms.ValidationError("This time slot is not available. Please choose a different date or time.")
-
         return cleaned_data
 
     def clean_time(self):
@@ -36,3 +32,8 @@ class ReservationForm(forms.ModelForm):
             raise forms.ValidationError("Select a valid choice for time")
 
         return selected_time
+    def clean_group(self):
+        selected_group = self.cleaned_data['group']
+        if selected_group < 1 or selected_group > 15:
+            raise forms.ValidationError("Group size must be between 1 and 15")
+        return selected_group

@@ -1,22 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 # Create your models here.
-
-class Guest(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=15)
-    created_on = models.DateTimeField(auto_now_add=True)
-    class Meta:
-        ordering = ["-created_on"]
-
-    def __str__(self):
-        return f"Guest: {self.name} | Email: {self.email} | Phone: {self.phone_number}"
-
-
 
 class Booking(models.Model):
     STATUS_CHOICES = (
@@ -48,7 +35,7 @@ class Booking(models.Model):
     guest = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.CharField(max_length=5, choices=TIME_CHOICES)
-    group = models.PositiveIntegerField(default=1, validators=[MaxValueValidator(15)])
+    group = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(15)])
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Pending")
     is_cancelled = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)

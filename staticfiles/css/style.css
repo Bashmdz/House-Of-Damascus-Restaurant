@@ -1,7 +1,6 @@
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('{% static "images/background.jpeg" %}');
     background-size: cover;
     /* Adjust the background size as needed */
     background-position: center;
@@ -150,6 +149,29 @@ body.error-page {
 
 .booking-list-section {
     padding: 50px 0;
+}
+
+/* Toast Messages */
+
+.messages-container {
+    margin-top: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error {
+    background-color: #ffcccc;
+    border: 1px solid #ff6666;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.success {
+    background-color: #ccffcc;
+    border: 1px solid #66ff66;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 /* Responsive Styles */

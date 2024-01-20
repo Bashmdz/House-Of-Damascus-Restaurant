@@ -29,11 +29,12 @@
 
     <!-- Custom CSS Styles -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}">
     <!-- Adjust the path based on your project structure -->
     <meta name="google-site-verification" content="0VBwFw-Y7zIQHlNAfz4EvfPulw8m9td2tsh7AWVSmHQ" />
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -85,7 +86,7 @@
     </nav>
 
     <!-- Content Area -->
-    <div class="container mt-4">
+    <div class="container mt-4 flex-grow-1">
         {% block content %}{% endblock %}
     </div>
 
