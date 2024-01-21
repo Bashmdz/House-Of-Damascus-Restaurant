@@ -7,6 +7,15 @@
 
 <!-- Hero Section -->
 <section class="hero-section text-center py-5">
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <h1 class="display-4">Indulge in the Flavors of Syria</h1>
     <p class="lead">Experience the richness of Syrian cuisine at Syria Restaurant</p>
     <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">Explore Our Menu</a>
