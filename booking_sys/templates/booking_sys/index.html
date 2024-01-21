@@ -1,9 +1,89 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block head_title %}Home - Syria Restaurant{% endblock %}
+{% block head_title %}Home - House Of Damascus{% endblock %}
 
 {% block content %}
+<style>
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("{% static 'images/background.jpeg' %}");
+        background-size: cover;
+        background-position: center 30%;
+        color: #fff;
+        padding: 100px 0;
+        text-align: center;
+    }
+
+    .hero-section h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    .hero-section p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+
+    .hero-section a.btn-primary {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+
+    /* About Section */
+    .about-section {
+        background-color: #f8f9fa;
+        padding: 80px 0;
+    }
+
+    .about-section h2 {
+        color: #007bff;
+    }
+
+    .about-section p {
+        font-size: 1.1em;
+        color: #495057;
+        margin-bottom: 20px;
+    }
+
+    /* Opening Time Section */
+    .opening-time-section {
+        background-color: #343a40;
+        color: #fff;
+        padding: 80px 0;
+    }
+
+    .opening-time-section h2 {
+        color: #17a2b8;
+    }
+
+    .opening-time-section p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        background-color: #f8f9fa;
+        padding: 80px 0;
+    }
+
+    .contact-section h2 {
+        color: #007bff;
+    }
+
+    .contact-section p {
+        font-size: 1.1em;
+        color: #495057;
+        margin-bottom: 20px;
+    }
+
+    .contact-section a.btn-primary {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+</style>
 
 <!-- Hero Section -->
 <section class="hero-section text-center py-5">
@@ -17,9 +97,12 @@
     </div>
     {% endif %}
     <h1 class="display-4">Indulge in the Flavors of Syria</h1>
-    <p class="lead">Experience the richness of Syrian cuisine at Syria Restaurant</p>
+    <p class="lead">Experience the richness of Syrian cuisine at House Of Damascus</p>
     <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">Explore Our Menu</a>
+    <p class="mt-3">Login to make a booking and savor the best of Syrian dishes! <a href="{% url 'account_signup' %}">Or
+            Sign Up</a></p>
 </section>
+
 
 <!-- About Section -->
 <section class="about-section text-center py-5">
@@ -27,9 +110,16 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2>About Us</h2>
-                <p>Welcome to Syria Restaurant, where culinary artistry meets cultural delight. Our chefs craft
-                    authentic Syrian dishes with passion and precision. Immerse yourself in a dining experience that
-                    transcends borders.</p>
+                <p>At House Of Damascus, we take pride in bringing the warmth and hospitality of Syria to your table.
+                    Our chefs are artists, transforming fresh and high-quality ingredients into masterpieces that not
+                    only tantalize your taste buds but also tell a story of tradition and culture.</p>
+                <p>From the vibrant spices of our Shawarma to the delicate layers of our Baklava, each dish is a
+                    celebration of flavors, carefully curated to transport you to the bustling markets and lively
+                    kitchens of Syria. Our commitment to authenticity ensures that every bite is a genuine experience of
+                    Syrian culinary excellence.</p>
+                <p>Step into our restaurant, where the ambiance reflects the essence of Damascus – a blend of modern
+                    elegance and timeless charm. Whether you're sharing a meal with loved ones or savoring a moment of
+                    solitude, House Of Damascus is your culinary sanctuary.</p>
             </div>
         </div>
     </div>
@@ -44,7 +134,6 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.678901234567!2d-75.12345678!3d40.12345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDMwJzUyLjIiTiA3NcKwMTknMTMuNSJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"></iframe>
 </section>
 
-
 <!-- Contact Section -->
 <section class="contact-section text-center py-5">
     <h2>Contact Us</h2>
@@ -57,5 +146,5 @@
 {% endblock %}
 
 {% block copyright %}
-Copyright 2024 Syria Restaurant. All Rights Reserved.
+Copyright 2024 House Of Damascus. All Rights Reserved.
 {% endblock %}
