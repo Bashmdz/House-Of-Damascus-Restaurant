@@ -164,23 +164,38 @@ Automated testing was conducted to ensure the functionality and integrity of the
 - **Error Handling Tests:**
   - The application's handling of unexpected errors, such as database connection issues, was tested.
 
-- **Performance Tests:**
-  - Performance testing was conducted to ensure the application scales well, especially with a large number of bookings.
-
 - **Template Rendering Tests:**
   - Tests were added to ensure the correct templates are being used to render views.
 
 - **Custom 404 View Test:**
   - The custom 404 view was tested to ensure it renders the correct template.
 
-- **Menu View Test:**
-  - The menu view was tested to ensure it renders successfully.
+- **Update Own Booking Test:**
+  - The ability of a user to update their own booking was tested.
 
-- **Pagination Test:**
-  - If applicable, pagination in the BookListView was tested to ensure it displays the correct number of bookings per page.
+- **Update Other User's Booking Test:**
+  - The prevention of a user updating another user's booking was tested.
 
-- **Date Hierarchy Test:**
-  - The ordering of bookings in the BookingList view based on the date_hierarchy in the admin was tested.
+- **Delete Own Booking Test:**
+  - The ability of a user to delete their own booking was tested.
+
+- **Delete Other User's Booking Test:**
+  - The prevention of a user deleting another user's booking was tested.
+
+- **User Authentication Test:**
+  - The authentication of users and access to certain views was tested.
+
+- **User Authorization Test:**
+  - The prevention of users updating or deleting bookings created by other users was tested.
+
+- **Date and Time Availability Test:**
+  - The handling of date and time availability to prevent double bookings was tested.
+
+- **Error Handling Scenarios Test:**
+  - The application's response to various error scenarios, including 404 pages and form validation errors, was tested.
+
+- **Date and Time Availability Test:**
+  - The handling of date and time availability to prevent double bookings was tested.
 
 ### Validator testing
 
@@ -221,16 +236,16 @@ The combination of these tools contributed to creating engaging and error-free c
 ### Media
 
 - **Favicon:**
-  ![Favicon](static/images/favicon.png) [Image Credit](https://www.logoai.com/logo-maker)
+  ![Favicon] [Image Credit](https://www.logoai.com/logo-maker)
 
 - **Background Image:**
-  ![Background Image](static/images/placeholder-background.jpg) [Image Credit](https://www.deviantart.com/edibetaawo/art/Islamic-Muslim-Background-Gacha-986753632)
+  ![Background Image][Image Credit](https://www.deviantart.com/edibetaawo/art/Islamic-Muslim-Background-Gacha-986753632)
 
 - **Menu Images:**
   - Placeholder for Breakfast Buffet
-    ![Breakfast Buffet](static/images/placeholder-menu-breakfast-buffet.jpg) [Image Credit](https://www.myrecipes.com/extracrispy/the-many-marvels-of-full-syrian-breakfast)
+    ![Breakfast Buffet][Image Credit](https://www.myrecipes.com/extracrispy/the-many-marvels-of-full-syrian-breakfast)
   - Placeholder for Lunch Buffet
-    ![Lunch Buffet](static/images/placeholder-menu-lunch-buffet.jpg) [Image Credit](https://www.facebook.com/p/Sandwich-Falafel-Abu-Alnur-Syrein-100054640261068/)
+    ![Lunch Buffet][Image Credit](https://www.facebook.com/p/Sandwich-Falafel-Abu-Alnur-Syrein-100054640261068/)
   - Placeholder for Dinner Buffet
-    ![Dinner Buffet](static/images/placeholder-menu-dinner-buffet.jpg) [Image Credit](https://njmonthly.com/articles/eat-drink/syria-supper-club-the-universal-language/)
+    ![Dinner Buffet][Image Credit](https://njmonthly.com/articles/eat-drink/syria-supper-club-the-universal-language/)
 
