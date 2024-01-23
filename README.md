@@ -207,7 +207,7 @@ The project was tested using the W3C Markup Validation Service and W3C CSS Valid
     ![CSS Validation](static/images/css-validator.png)
 ### Unfixed Bugs
 
-Google Chrome sometimes shows that the website is unsafe.
+Google Chrome sometimes shows that the website is unsafe, I already sent Google a request to fix this issue.
 
 ## Deployment
 
