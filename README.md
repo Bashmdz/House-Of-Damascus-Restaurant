@@ -1,5 +1,5 @@
 # House of Damascus Restaurant
-
+![Responsive View](static/images/responsive-preview.png)
 ## Project Overview
 
 House of Damascus is a web application designed for a restaurant, offering users access to information about the restaurant, its menu, location, and an integrated booking system. Users can register, log in, make reservations, and review their booking history and edit them.
@@ -74,16 +74,20 @@ After a successful booking, users can view their specific booking list. The list
 ![Sign up Page](static/images/booking-list.png)
 
 ### Booking Update Capabilities
-A button allows users to update details of a pending or confirmed booking. The form warns about resetting confirmed bookings to pending and allows users to confirm or return without changes.
+A button allows users to update details of a pending or confirmed booking. The form allows users to confirm or return without changes.
+![Sign up Page](static/images/update-booking.png)
 
 ### Booking Deletion Capabilities
 A button enables users to delete a booking, displaying details and a confirmation prompt. Users can confirm and delete or return without deletion.
+![Sign up Page](static/images/delete-page.png)
 
 ### Booking Overview for Admin
 An admin area includes a list of all bookings, with a dropdown option to set booking status as confirmed or canceled.
+![Sign up Page](static/images/admin-edit-page.png)
 
 ### Error Page
 Custom error page 404 provide links back to valid areas of the site, enhancing user experience in case of errors.
+![Sign up Page](static/images/404.png)
 
 ## Features to be Implemented
 
@@ -183,8 +187,9 @@ Automated testing was conducted to ensure the functionality and integrity of the
 The project was tested using the W3C Markup Validation Service and W3C CSS Validation Service to ensure that the code meets industry standards.
 
 - [W3C Markup Validation Service](https://validator.w3.org/): Ensures HTML code validity.
+    ![HTML Validation](static/images/html-validator.png)
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/): Checks the validity of CSS code.
-
+    ![CSS Validation](static/images/css-validator.png)
 ### Unfixed Bugs
 
 No unfixed Bugs were found
