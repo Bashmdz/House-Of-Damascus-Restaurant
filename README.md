@@ -242,10 +242,9 @@ The combination of these tools contributed to creating engaging and error-free c
   ![Background Image][Image Credit](https://www.deviantart.com/edibetaawo/art/Islamic-Muslim-Background-Gacha-986753632)
 
 - **Menu Images:**
-  - Placeholder for Breakfast Buffet
+  - Breakfast Buffet
     ![Breakfast Buffet][Image Credit](https://www.myrecipes.com/extracrispy/the-many-marvels-of-full-syrian-breakfast)
-  - Placeholder for Lunch Buffet
+  - Lunch Buffet
     ![Lunch Buffet][Image Credit](https://www.facebook.com/p/Sandwich-Falafel-Abu-Alnur-Syrein-100054640261068/)
-  - Placeholder for Dinner Buffet
+  - Dinner Buffet
     ![Dinner Buffet][Image Credit](https://njmonthly.com/articles/eat-drink/syria-supper-club-the-universal-language/)
-
