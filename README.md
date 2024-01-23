@@ -57,7 +57,7 @@ A static page showcases the restaurant's food and prices. The layout is responsi
 
 ### Booking Admin
 An admin area is accessible only by administrators, providing a link to view all booking entries in the database.
-![Admin Page](static/images/footer.png)
+![Admin Page](static/images/admin-page.png)
 
 ### Sign Up/In/Out Forms
 User authentication is managed through sign-up, sign-in, and sign-out forms. The forms include necessary validation and links for a seamless user experience.
