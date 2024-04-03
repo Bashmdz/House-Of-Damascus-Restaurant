@@ -32,7 +32,7 @@ SECRET_KEY = 'r8$&i+tiywn6*#bm26*wz47sj538g)5-3^f=est%lig5v^0qbn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-bashmdz-restaurantbooki-p2d7q6lyrga.ws-us107.gitpod.io','.herokuapp.com'
+ALLOWED_HOSTS = ['8000-bashmdz-houseofdamascus-0dlkxkhy978.ws-us110.gitpod.io','.herokuapp.com'
 ]
 
 
@@ -102,7 +102,7 @@ if 'test' in sys.argv:
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-bashmdz-restaurantbooki-p2d7q6lyrga.ws-us107.gitpod.io",
+    "https://8000-bashmdz-houseofdamascus-0dlkxkhy978.ws-us110.gitpod.io/",
     "https://my-restaurant-booking-system-38d3a97041b0.herokuapp.com"
 ]
 
