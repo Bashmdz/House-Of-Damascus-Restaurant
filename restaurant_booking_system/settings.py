@@ -102,7 +102,7 @@ if 'test' in sys.argv:
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-bashmdz-houseofdamascus-0dlkxkhy978.ws-us110.gitpod.io/",
+    "https://8000-bashmdz-houseofdamascus-0dlkxkhy978.ws-us110.gitpod.io",
     "https://my-restaurant-booking-system-38d3a97041b0.herokuapp.com"
 ]
 
