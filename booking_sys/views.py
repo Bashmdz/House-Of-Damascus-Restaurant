@@ -15,8 +15,6 @@ class BookingList(generic.ListView):
 def menu(request):
     return render(request, 'menu.html')
 
-# views.py
-
 class BookFormView(generic.CreateView):
     model = Booking
     form_class = ReservationForm
