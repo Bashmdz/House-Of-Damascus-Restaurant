@@ -23,12 +23,25 @@ Explore the live demo: [House of Damascus Demo](https://my-restaurant-booking-sy
   - [Booking Deletion Capabilities](#booking-deletion-capabilities)
   - [Booking Overview for Admin](#booking-overview-for-admin)
   - [Error Page](#error-page)
+- [Design Process and Reasoning](#design-process-and-reasoning)
+  - [Design Philosophy](#design-philosophy)
+  - [Color Palette](#color-palette)
+  - [Typography](#typography)
+  - [Design Process](#design-process)
+- [Models](#models)
+  - [User Model](#user-model)
+  - [Booking Model](#booking-model)
+- [Database Schema](#database-schema)
+  - [User](#user)
+  - [Booking](#booking)
 - [Features to be Implemented](#features-to-be-implemented)
 - [Technology & Resources](#technology--resources)
   - [Technologies Used](#technologies-used)
   - [Packages Used](#packages-used)
   - [Reference Materials](#reference-materials)
 - [Testing](#testing))
+    - [Automated Testing](#automated-testing)
+    - [Manual testing](#manual-testing)   
     - [Validator testing](#validator-testing)
     - [Unfixed Bugs](#unfixed-bugs)
 - [Deployment](#deployment)
@@ -88,6 +101,104 @@ An admin area includes a list of all bookings, with a dropdown option to set boo
 ### Error Page
 Custom error page 404 provide links back to valid areas of the site, enhancing user experience in case of errors.
 ![Sign up Page](static/images/404.png)
+
+## Design Process and Reasoning
+
+### Design Philosophy
+
+At House of Damascus, simplicity and clarity are prioritized. The design philosophy revolves around creating intuitive and user-friendly experiences that prioritize ease of use and accessibility. The design is clean, minimalist, and aesthetically pleasing to ensure that visitors can navigate the website effortlessly.
+
+### Color Palette
+
+The House of Damascus website employs a simple color palette consisting of white, gray, and black. These neutral colors were chosen for their versatility, allowing content and visuals to stand out without overwhelming the user. The use of white promotes a sense of cleanliness and spaciousness, while gray and black add depth and contrast to the overall design.
+
+### Typography
+
+For typography, the Arial font family was selected for its readability and familiarity. Arial offers a clean and modern look that complements the minimalist design aesthetic. Its simplicity ensures that content remains easy to read across different devices and screen sizes, enhancing the user experience.
+
+### Design Process
+
+The design process follows a systematic approach aimed at delivering a seamless and cohesive website experience. Here's an overview of the design process:
+
+1. **Research**: Thorough research was conducted to understand the target audience, their preferences, and their expectations from a restaurant website with a booking system like House of Damascus.
+
+2. **Conceptualization**: Based on research findings, various design ideas were brainstormed and conceptualized to align with the brand identity and user needs.
+
+3. **Prototyping**: Wireframing and prototyping tools were used to create mockups visualizing the layout, structure, and functionality of the House of Damascus website.
+
+4. **Feedback and Iteration**: Feedback was gathered from random users, incorporating suggestions and making iterative improvements to the design.
+
+5. **Finalization**: After multiple rounds of refinement, the design was finalized, ensuring that it met objectives and satisfied the needs of the target audience.
+
+By adhering to these principles and processes, House of Damascus has crafted a website that delivers a seamless and enjoyable user experience, reflecting the commitment to simplicity, clarity, and user-centric design.
+
+## Models
+
+### User
+
+The `User` model is provided by Django's authentication system and represents registered users of the application.
+
+**Fields:**
+
+- `username`: CharField, representing the unique username of the user.
+- `email`: EmailField, representing the email address of the user.
+- `password`: CharField, representing the hashed password of the user.
+
+**Relationships:**
+
+- Each `User` can have multiple `Booking` objects associated with them.
+
+### Booking
+
+The `Booking` model represents a reservation made by a user for a specific date and time.
+
+**Fields:**
+
+- `guest`: ForeignKey to the User model, representing the user who made the booking.
+- `date`: DateField, representing the date of the booking.
+- `time`: CharField with choices, representing the time slot for the booking.
+- `group`: PositiveIntegerField, representing the number of guests in the booking group.
+- `status`: CharField with choices, representing the status of the booking (Pending, Confirmed, Cancelled).
+- `is_cancelled`: BooleanField, indicating whether the booking has been cancelled.
+- `created_on`: DateTimeField, representing the timestamp when the booking was created.
+
+**Relationship:**
+
+- Each `Booking` is associated with a single `User` who made the reservation.
+
+**Methods:**
+
+- `__str__`: Returns a string representation of the booking, including the guest's username, date, and time.
+
+**Meta:**
+
+- `ordering`: Specifies the default ordering of Booking objects by their creation timestamp.
+
+## Database Schema
+
+The database schema for the House of Damascus project is based on the following models:
+
+### User Model
+
+| Field     | Type          | Description                     |
+|-----------|---------------|---------------------------------|
+| id        | IntegerField  | Primary key                     |
+| username  | CharField     | Unique username of the user     |
+| email     | EmailField    | Email address of the user       |
+| password  | CharField     | Hashed password of the user     |
+
+### Booking Model
+
+| Field        | Type            | Description                                       |
+|--------------|-----------------|---------------------------------------------------|
+| id           | IntegerField    | Primary key                                       |
+| guest_id     | ForeignKey      | Foreign key referencing the User model            |
+| date         | DateField       | Date of the booking                               |
+| time         | CharField       | Time slot for the booking                         |
+| group        | PositiveIntegerField | Number of guests in the booking group         |
+| status       | CharField       | Status of the booking (Pending, Confirmed, Cancelled) |
+| is_cancelled | BooleanField    | Indicates whether the booking has been cancelled |
+| created_on   | DateTimeField   | Timestamp when the booking was created           |
 
 ## Features to be Implemented
 
@@ -149,6 +260,7 @@ The following features are identified as long-term goals to enhance user experie
 ## Testing
 
 ### Automated Testing
+![Automated Testing](static/images/automated-tests.png)
 
 Automated testing was conducted to ensure the functionality and integrity of the project. The testing process included the following:
 
@@ -197,6 +309,58 @@ Automated testing was conducted to ensure the functionality and integrity of the
 - **Date and Time Availability Test:**
   - The handling of date and time availability to prevent double bookings was tested.
 
+### Manual Testing
+
+#### Booking System
+
+1. **Create a Booking:**
+   - Navigate to the booking form page.
+   - Enter valid details such as date, time, and group size.
+   - Submit the form and verify that the booking is successfully created.
+
+2. **View Bookings:**
+   - Log in as a registered user.
+   - Navigate to the booking list page.
+   - Verify that all bookings associated with the logged-in user are displayed.
+
+3. **Update Booking:**
+   - Log in as the user who created the booking.
+   - Navigate to the booking update page for the desired booking.
+   - Modify the booking details and submit the form.
+   - Verify that the booking details are updated accordingly.
+
+4. **Delete Booking:**
+   - Log in as the user who created the booking.
+   - Navigate to the booking list page.
+   - Click on the delete button for the desired booking.
+   - Confirm the deletion and verify that the booking is removed from the list.
+
+5. **Error Handling:**
+   - Access non-existent pages and verify that the custom 404 page is displayed.
+   - Submit forms with invalid data and verify that appropriate error messages are shown.
+
+#### User Authentication and Authorization
+
+1. **Login Functionality:**
+   - Navigate to the login page.
+   - Enter valid credentials and submit the form.
+   - Verify that the user is redirected to the home page after successful login.
+
+2. **Access Control:**
+   - Attempt to access restricted pages without logging in.
+   - Verify that the user is redirected to the login page.
+
+3. **User Permissions:**
+   - Attempt to perform actions such as updating or deleting bookings created by other users.
+   - Verify that the user receives a permission denied error message.
+
+#### Date and Time Availability
+
+1. **Prevent Double Bookings:**
+   - Create a booking for a specific date and time.
+   - Attempt to create another booking for the same date and time.
+   - Verify that the second booking is rejected due to availability constraints.
+
 ### Validator testing
 
 The project was tested using the W3C Markup Validation Service and W3C CSS Validation Service to ensure that the code meets industry standards.
@@ -207,7 +371,7 @@ The project was tested using the W3C Markup Validation Service and W3C CSS Valid
     ![CSS Validation](static/images/css-validator.png)
 ### Unfixed Bugs
 
-Google Chrome sometimes shows that the website is unsafe, I already sent Google a request to fix this issue.
+Google Chrome sometimes shows that the website is unsafe, a request to Google was sent to fix this issue.
 
 ## Deployment
 
@@ -215,12 +379,14 @@ Google Chrome sometimes shows that the website is unsafe, I already sent Google 
 
 This project was deployed to Heroku using these steps:
 
-    1. Fork or clone this repository
-    2. Create a new Heroku app
-    3. Set the buildpacks to Python
-    4. Set the config vars for your database connection and api keys
-    4. Link the Heroku app to the repository
-    5. Click on deploy
+  1. Create a Heroku account and install the Heroku CLI.
+  2. Initialize a Git repository in your project folder (`git init`).
+  3. Log in to Heroku CLI (`heroku login`) and create a new Heroku app (`heroku create`).
+  4. Set up Heroku PostgreSQL as the database (`heroku addons:create heroku-postgresql`).
+  5. Push your code to the Heroku remote (`git push heroku master`).
+  6. Run migrations and set up the database (`heroku run python manage.py migrate`).
+  7. Deploy your app to Heroku (`git push heroku master`).
+  8. Application should now be deployed and accessible via the provided Heroku app URL.
 
 ## Credits
 
